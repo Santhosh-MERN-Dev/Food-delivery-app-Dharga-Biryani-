@@ -1,0 +1,35 @@
+426:     outline-color: gold;
+427:   }
+428: 
+429:   100% {
+430:     outline-color: grey;
+431:   }
+432: }
+433: 
+434: .moon-logo:hover {
+435:   -webkit-animation: rotate-center 1s ease-in-out both;
+436:   animation: rotate-center 1s ease-in-out both;
+437: }
+438: 
+439: @keyframes rotate-center {
+440:   0% {
+441:     -webkit-transform: rotate(0);
+442:     transform: rotate(0);
+443:   }
+444: 
+445:   100% {
+446:     -webkit-transform: rotate(360deg);
+447:     transform: rotate(360deg);
+448:   }
+449: }
+450: 
+451: 
+452: /* Orders Component Modern Design */
+453: .orders-container {
+454:   min-height: 100vh;
+455:   background: linear-gradient(135deg, #fdeb71, #f8d800 100%);
+456:   padding: 2rem 0;
+457: }
+458: 
+459: .orders-header {
+460:   text-align: center;

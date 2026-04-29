@@ -1,0 +1,105 @@
+296:   stroke-dashoffset: -32.42;
+297: }
+298: 
+299: /* nav Brand name*/
+300: .shine {
+301:   font-size: 26px;
+302:   margin-top: 2px;
+303:   font-weight: 900;
+304:   color: rgba(255, 255, 255, 0.3);
+305:   background: #222 -webkit-gradient(linear,
+306:       left top,
+307:       right top,
+308:       from(#222),
+309:       to(#222),
+310:       color-stop(0.5, #fff)) 0 0 no-repeat;
+311:   background-image: -webkit-linear-gradient(-40deg,
+312:       transparent 0%,
+313:       transparent 40%,
+314:       gold, yellow 60%,
+315:       transparent 80%,
+316:       transparent 100%);
+317:   background-clip: text;
+318:   background-size: 60px;
+319:   animation: zezzz;
+320:   animation-duration: 5s;
+321:   animation-iteration-count: infinite;
+322: }
+323: 
+324: @keyframes zezzz {
+325: 
+326:   0%,
+327:   10% {
+328:     background-position: -200px;
+329:   }
+330: 
+331:   20% {
+332:     background-position: top left;
+333:   }
+334: 
+335:   100% {
+336:     background-position: 200px;
+337:   }
+338: }
+339: 
+340: .nav-brand {
+341:   margin-left: 40px;
+342: }
+343: 
+344: .home-container {
+345:   margin-left: 50px;
+346:   margin-bottom: 200px;
+347: }
+348: 
+349: /* Order Button */
+350: .order-btn {
+351:   padding: 0.3em 0.7em;
+352:   border: none;
+353:   border-radius: 30px;
+354:   font-weight: bold;
+355:   letter-spacing: 4px;
+356:   text-transform: uppercase;
+357:   cursor: pointer;
+358:   color: #000;
+359:   transition: all 1000ms;
+360:   font-size: 16px;
+361:   position: relative;
+362:   overflow: hidden;
+363:   outline: 2px solid grey;
+364:   animation: pulse 2s infinite;
+365: }
+366: 
+367: .order-btn:hover {
+368:   color: #000;
+369:   transform: scale(1.1);
+370:   outline: 2px solid black;
+371:   box-shadow: 4px 5px 17px -4px grey;
+372: }
+373: 
+374: .order-btn::before {
+375:   content: "";
+376:   position: absolute;
+377:   left: -50px;
+378:   top: 0;
+379:   width: 0;
+380:   height: 100%;
+381:   background-color: gold;
+382:   transform: skewX(45deg);
+383:   z-index: -1;
+384:   transition: width 1000ms;
+385: }
+386: 
+387: .order-btn:hover::before {
+388:   width: 250%;
+389: }
+390: 
+391: .waviy {
+392:   position: relative;
+393:   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
+394:   font-size: 25px;
+395: }
+396: 
+397: .waviy span {
+398:   position: relative;
+399:   display: inline-block;
+400:   color: #000;
