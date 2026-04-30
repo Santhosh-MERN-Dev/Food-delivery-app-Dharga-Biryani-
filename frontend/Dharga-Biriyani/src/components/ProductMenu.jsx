@@ -8,6 +8,8 @@ import { GiChickenLeg, GiCookingPot } from "react-icons/gi";
 import { FaLeaf, FaDrumstickBite, FaShoppingCart, FaBolt } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ProductMenu = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
@@ -24,7 +26,7 @@ const ProductMenu = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/products", { method: "GET" })
+    fetch(`${API_URL}/products`, { method: "GET" })
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -50,7 +52,7 @@ const ProductMenu = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/products/search?q=${value}`,
+        `${API_URL}/products/search?q=${value}`,
       );
       const data = await res.json();
       setProducts(data);
@@ -80,7 +82,7 @@ const ProductMenu = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/cart/add", {
+      const res = await fetch(`${API_URL}/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

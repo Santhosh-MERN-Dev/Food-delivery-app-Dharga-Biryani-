@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Button, Paper, TextField } from "@mui/material";
 import AOS from "aos";
+import API_URL from "../config/api";
 
 const CreateProduct = () => {
   useEffect(() => {
@@ -59,7 +60,7 @@ const CreateProduct = () => {
     formData.append("actualPrice", actualPrice);
     formData.append("image", file);
 
-    const res = await fetch("http://localhost:3000/products", {
+    const res = await fetch(`${API_URL}/products`, {
       method: "POST",
       body: formData,
     });
@@ -92,7 +93,7 @@ const CreateProduct = () => {
     if (file) {
       formData.append("image", file);
     }
-    await fetch(`http://localhost:3000/products/${editId}`, {
+    await fetch(`${API_URL}/products/${editId}`, {
       method: "PUT",
       body: formData,
     });
@@ -115,7 +116,7 @@ const CreateProduct = () => {
   //Get Product
   const getProducts = async () => {
     //image show ui
-    const res = await fetch("http://localhost:3000/products");
+    const res = await fetch(`${API_URL}/products`);
     const data = await res.json();
     setProducts(data);
     AOS.refresh();
@@ -132,7 +133,7 @@ const CreateProduct = () => {
 
     if (!confirmDelete) return;
 
-    await fetch(`http://localhost:3000/products/${_id}`, { method: "DELETE" });
+    await fetch(`${API_URL}/products/${_id}`, { method: "DELETE" });
 
     toast.success("Product Deleted Successfully");
 

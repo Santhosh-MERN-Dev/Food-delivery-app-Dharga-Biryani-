@@ -1,7 +1,10 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017';
+
 // User Database
-const userDB = mongoose.createConnection('mongodb://localhost:27017/user')
+const userDB = mongoose.createConnection(`${mongoURI}/user`)
 userDB.on('connected', ()=> {
     console.log('user DB Connected')
 })
@@ -10,7 +13,7 @@ userDB.on('error', (error)=> {
 })
 
 //Products Database
-const productDB = mongoose.createConnection('mongodb://localhost:27017/products')
+const productDB = mongoose.createConnection(`${mongoURI}/products`)
 productDB.on('connected', ()=> {
     console.log('product DB Connected')
 })
@@ -19,7 +22,7 @@ productDB.on('error', (error)=> {
 })
 
 //orders Database
-const orderDB = mongoose.createConnection('mongodb://localhost:27017/orders')
+const orderDB = mongoose.createConnection(`${mongoURI}/orders`)
 orderDB.on('connected', ()=> {
     console.log('order DB Connected')
 })
@@ -28,7 +31,7 @@ orderDB.on('error', (error) => {
 })
 
 //cart Database
-const cartDB = mongoose.createConnection('mongodb://localhost:27017/cartdb')
+const cartDB = mongoose.createConnection(`${mongoURI}/cartdb`)
 cartDB.on('connected', ()=> {
     console.log('Cart DB Connected')
 })

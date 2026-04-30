@@ -11,6 +11,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
+import API_URL from "../config/api";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -25,7 +26,7 @@ const Cart = () => {
 
   const getCart = useCallback(async () => {
     try {
-      const res = await fetch("http://localhost:3000/cart", {
+      const res = await fetch(`${API_URL}/cart`, {
         headers: { authorization: token },
       });
       const data = await res.json();
@@ -53,7 +54,7 @@ const Cart = () => {
 
   const updateQty = async (productId, type) => {
     const t = localStorage.getItem("token");
-    await fetch("http://localhost:3000/cart/update", {
+    await fetch(`${API_URL}/cart/update`, {
       method: "PUT",
       headers: { "Content-Type": "application/json", authorization: t },
       body: JSON.stringify({ productId, type }),
@@ -63,7 +64,7 @@ const Cart = () => {
 
   const removeItem = async (id) => {
     const t = localStorage.getItem("token");
-    await fetch(`http://localhost:3000/cart/remove/${id}`, {
+    await fetch(`${API_URL}/cart/remove/${id}`, {
       method: "DELETE",
       headers: { authorization: t },
     });

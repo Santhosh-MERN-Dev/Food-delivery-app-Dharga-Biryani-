@@ -12,6 +12,7 @@ import {
   Avatar,
 } from "@mui/material";
 import CreateProduct from "./CreateProduct";
+import API_URL from "../config/api";
 
 const Adminpanel = () => {
   const [orders, setOrders] = useState([]);
@@ -24,7 +25,7 @@ const Adminpanel = () => {
   //Get all orders
   const getOrders = useCallback(async () => {
     try {
-      const res = await fetch("http://localhost:3000/orders/admin/all", {
+      const res = await fetch(`${API_URL}/orders/admin/all`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +49,7 @@ const Adminpanel = () => {
 
   //update Status
   const updateStatus = async (id, status) => {
-    await fetch(`http://localhost:3000/orders/admin/status/${id}`, {
+    await fetch(`${API_URL}/orders/admin/status/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

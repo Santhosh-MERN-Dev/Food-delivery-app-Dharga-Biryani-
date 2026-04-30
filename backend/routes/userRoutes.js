@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
@@ -43,7 +44,7 @@ router.post("/login", async (req, res) => {
             return res.status(401).json({ success: false, message: "Wrong Password" });
         }
 
-        const token = jwt.sign({ id: user._id, role: user.role }, "secretkey", { expiresIn: "1w" });
+        const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1w" });
         res.json({ success: true, message: "Login Success", token, role: user.role });
     }
     catch (err) {

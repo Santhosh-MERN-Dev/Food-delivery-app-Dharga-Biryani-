@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import API_URL from "../config/api";
 
 const CartContext = createContext();
 
@@ -14,7 +15,7 @@ export const CartProvider = ({ children }) => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/cart", {
+      const res = await fetch(`${API_URL}/cart`, {
         headers: { authorization: token },
       });
       const data = await res.json();

@@ -3,6 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import { FaUserEdit, FaSignOutAlt, FaEnvelope, FaShieldAlt, FaSave, FaTimes } from "react-icons/fa";
+import API_URL from "../config/api";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -27,7 +28,7 @@ const Profile = () => {
   const fetchProfile = useCallback(
     async () => {
       try {
-        const res = await fetch("http://localhost:3000/auth/register", {
+        const res = await fetch(`${API_URL}/auth/register`, {
           method: "GET",
           headers: {
             authorization: token,
@@ -57,7 +58,7 @@ const Profile = () => {
   const updateProfile = async () => {
     const token = localStorage.getItem("token");
 
-    const res = await fetch("http://localhost:3000/auth/register", {
+    const res = await fetch(`${API_URL}/auth/register`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
